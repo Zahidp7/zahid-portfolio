@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zahid | Cloud Portfolio</title>
+  <style>
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      scroll-behavior: smooth;
+      animation: fadeIn 1.2s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: rgba(255,255,255,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2rem;
+      border-bottom: 2px solid #00e0ff;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease, background 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.05);
+      background: rgba(0,224,255,0.1);
+    }
+
+    .contact input, .contact textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .contact button {
+      background: #00e0ff;
+      color: #000;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact button:hover {
+      background: #00b8d4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Animation effect */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Zahid</h1>
+    <p>Cloud & DevOps Enthusiast | AWS Learner</p>
+  </header>
+
+  <section class="fade-in">
+    <h2>About Me</h2>
+    <p>
+      I’m Zahid, passionate about cloud computing and DevOps. Currently building hands-on skills with AWS services, EC2, S3, IAM and beyond. This is my personal showcase hosted on a real AWS EC2 instance!
+    </p>
+  </section>
+
+  <section class="fade-in">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Live Portfolio Site</h3>
+        <p>This exact website hosted on an EC2 instance. Designed, deployed, and served entirely through AWS!</p>
+      </div>
+      <div class="project">
+        <h3>S3 Static Hosting</h3>
+        <p>Built and deployed a fully static site using Amazon S3 + Route 53 for custom domain support.</p>
+      </div>
+      <div class="project">
+        <h3>CLI-Based EC2 Deployment</h3>
+        <p>Launched and configured EC2 instances via AWS CLI and SSH key pairs for remote deployment.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <h2>Contact Me</h2>
+    <form class="contact">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer>
+    Built by Zahid © 2025 — Powered by AWS EC2
+  </footer>
+
+  <script>
+    // Fade-in effect on scroll
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
+
